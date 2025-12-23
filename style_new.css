@@ -1,0 +1,193 @@
+/* Noto Sans Thai Font */
+@font-face {
+    font-family: 'Noto Sans Thai';
+    src: url('Noto_Sans_Thai/static/NotoSansThai-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans Thai';
+    src: url('Noto_Sans_Thai/static/NotoSansThai-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans Thai';
+    src: url('Noto_Sans_Thai/static/NotoSansThai-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Sans Thai';
+    src: url('Noto_Sans_Thai/static/NotoSansThai-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans Thai", "Prompt", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #000;
+}
+
+/* Page Container */
+.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    z-index: 1;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* Background Image - Responsive Cover */
+.page-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+/* Logo - Full screen like background */
+.page-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 10;
+}
+
+/* Image Button - Base Style */
+.img-btn {
+    position: absolute;
+    z-index: 100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.img-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.img-btn:active {
+    transform: scale(0.98);
+}
+
+.img-btn img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Start Button - Center Bottom */
+.start-btn {
+    bottom: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.start-btn img {
+    width: 80vw;
+    /* 50% ของความกว้างหน้าจอ */
+    max-width: 600px;
+}
+
+.start-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.start-btn:active {
+    transform: translateX(-50%) scale(0.98);
+}
+
+/* Next Button - Center Bottom */
+.next-btn {
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.next-btn img {
+    width: clamp(100px, 20vw, 200px);
+}
+
+.next-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.next-btn:active {
+    transform: translateX(-50%) scale(0.98);
+}
+
+/* Fade animations */
+.page.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page.fade-in {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive adjustments - Mobile */
+@media (max-width: 768px) {
+    .start-btn img {
+        width: clamp(150px, 50vw, 300px);
+    }
+
+    .next-btn img {
+        width: clamp(120px, 40vw, 250px);
+    }
+}
+
+/* Landscape phone */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .start-btn img,
+    .next-btn img {
+        width: clamp(80px, 15vw, 120px);
+    }
+}
