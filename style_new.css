@@ -144,13 +144,13 @@ body {
 
 /* Next Button - Center Bottom */
 .next-btn {
-    bottom: 8%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .next-btn img {
-    width: clamp(100px, 20vw, 200px);
+    width: clamp(300px, 30vw, 300px);
 }
 
 .next-btn:hover {
@@ -172,22 +172,153 @@ body {
     visibility: visible;
 }
 
-/* Responsive adjustments - Mobile */
-@media (max-width: 768px) {
-    .start-btn img {
-        width: clamp(150px, 50vw, 300px);
-    }
-
-    .next-btn img {
-        width: clamp(120px, 40vw, 250px);
-    }
+/* Invisible Input */
+.invisible-input {
+    position: absolute;
+    left: 47.6%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 300px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #333;
+    z-index: 50;
+    caret-color: #333;
 }
 
-/* Landscape phone */
-@media (max-height: 500px) and (orientation: landscape) {
+.invisible-input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
 
-    .start-btn img,
-    .next-btn img {
-        width: clamp(80px, 15vw, 120px);
-    }
+/* Input positions */
+.input-1 {
+    top: 38.4%;
+    /* ชื่อ */
+}
+
+.input-2 {
+    top: 50.35%;
+    /* อายุ */
+}
+
+.input-3 {
+    top: 62.31%;
+    /* เพศ */
+}
+
+/* Submit Button */
+.submit-btn {
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.submit-btn img {
+    width: 50vw;
+    max-width: 300px;
+}
+
+.submit-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.submit-btn:active {
+    transform: translateX(-50%) scale(0.98);
+}
+
+/* Media queries removed - button uses main css values */
+
+/* ====== Page 4: Story Animation ====== */
+
+.story-page {
+    background: #000;
+}
+
+.story-black-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 5;
+}
+
+/* Intro Text - center of black screen */
+.story-intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 1.8;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+.story-intro-text.fade-out {
+    opacity: 0;
+}
+
+/* Station Background */
+.story-bg {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.story-bg.show {
+    opacity: 1;
+}
+
+/* Frame in center */
+.story-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(250px, 70vw, 500px);
+    height: auto;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.story-frame.show {
+    opacity: 1;
+}
+
+/* Story Text */
+.story-text {
+    position: absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+    line-height: 1.8;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    z-index: 25;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.story-text.show {
+    opacity: 1;
+}
+
+.story-text.fade-out {
+    opacity: 0;
+}
+
+/* Hidden state */
+.hidden {
+    opacity: 0;
 }

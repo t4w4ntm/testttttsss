@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Retro Letter - The Little Journey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#1a8f4a">
+    <link rel="stylesheet" href="style_new.css?v=3">
+</head>
+
+<body>
+    <!-- Page 1: Intro Screen -->
+    <div id="page-1" class="page active">
+        <!-- Background Layer -->
+        <img src="1.INTRO/page 1/page1-24.png" alt="Background" class="page-bg">
+
+        <!-- Logo Layer (center) -->
+        <img src="1.INTRO/page 1/page1-26.png" alt="Retro Letter Logo" class="page-logo">
+
+        <!-- Start Button (bottom) -->
+        <button id="start-btn" class="img-btn start-btn" aria-label="Start Game">
+            <img src="1.INTRO/page 1/page1-25.png" alt="Start">
+        </button>
+    </div>
+
+    <!-- Page 2: After clicking Start -->
+    <div id="page-2" class="page">
+        <!-- Background Layer -->
+        <img src="1.INTRO/page 2/webA.jpg" alt="Page 2 Background" class="page-bg">
+
+        <!-- Overlay Layer (same size as background) -->
+        <img src="1.INTRO/page 2/page2-30.png" alt="Content" class="page-logo">
+
+        <!-- Next Button -->
+        <button id="next-btn-2" class="img-btn next-btn" aria-label="Next">
+            <img src="1.INTRO/page 2/page2-31.png" alt="Next">
+        </button>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page-3" class="page">
+        <!-- Background Layer -->
+        <img src="1.INTRO/page 1/page1-24.png" alt="Background" class="page-bg">
+
+        <!-- Overlay Layer (same size as background) -->
+        <img src="1.INTRO/page 3/page3-27.png" alt="Content" class="page-logo">
+
+        <!-- Invisible Inputs -->
+        <input type="text" id="name-input" class="invisible-input input-1" placeholder="กรอกชื่อของคุณ"
+            autocomplete="off">
+        <input type="text" id="age-input" class="invisible-input input-2" placeholder="ใส่อายุของคุณ"
+            autocomplete="off">
+        <select id="gender-input" class="invisible-input input-3">
+            <option value="" disabled selected>เพศ</option>
+            <option value="male">ชาย</option>
+            <option value="female">หญิง</option>
+            <option value="other">อื่นๆ</option>
+        </select>
+
+        <!-- Submit Button -->
+        <button id="submit-btn-3" class="img-btn submit-btn" aria-label="Submit">
+            <img src="1.INTRO/page 3/page3-28.png" alt="Submit">
+        </button>
+    </div>
+
+    <!-- Page 4: Story Animation -->
+    <div id="page-4" class="page story-page">
+        <!-- Black Background (initial) -->
+        <div class="story-black-bg"></div>
+
+        <!-- Intro Text (fades out) -->
+        <div class="story-intro-text">
+            <p>คืนก่อนวันคริสต์มาส</p>
+            <p>คุณเข้านอนเร็วเป็นพิเศษ</p>
+            <p>ด้วยความตื่นเต้น</p>
+        </div>
+
+        <!-- Station Background (appears after text fades) -->
+        <img src="2.BG/for Storyline/Station.jpg" alt="Station" class="page-bg story-bg hidden">
+
+        <!-- Frame in center -->
+        <img src="3.กรอบ/for Storyline/2-4.png" alt="Frame" class="story-frame hidden">
+
+        <!-- Story Text 1 -->
+        <div class="story-text story-text-1 hidden">
+            <p style="white-space: nowrap;">แต่เมื่อลืมตาขึ้นอีกครั้ง...</p>
+            <p style="white-space: nowrap;">กลับเห็นตัวเองยืนอยู่ที่ชานชาลารถไฟ</p>
+            <p style="white-space: nowrap;">ท่ามกลางหิมะโปรยปราย</p>
+        </div>
+
+        <!-- Story Text 2 -->
+        <div class="story-text story-text-2 hidden">
+            <p style="white-space: nowrap;">รอบตัวเต็มไปด้วยไฟประดับ</p>
+            <p style="white-space: nowrap;">ลมหนาวเบาๆ กลิ่นขนมปังขิงลอยอบอวล</p>
+            <p style="white-space: nowrap;">เหมือนพาคุณเข้าสู่โลกคริสต์มาส</p>
+            <p style="white-space: nowrap;">สุดมหัศจรรย์</p>
+        </div>
+
+        <!-- Story Text 3 -->
+        <div class="story-text story-text-3 hidden">
+            <p style="white-space: nowrap;">ระหว่างที่คุณกำลังมองไปรอบๆ</p>
+            <p style="white-space: nowrap;">ก็มีเด็กคนหนึ่งวิ่งมาชน</p>
+            <p style="white-space: nowrap;">ของในมือเขาพลันร่วงลงบนพื้นทันที</p>
+        </div>
+    </div>
+
+    <script src="game_new.js"></script>
+</body>
+
+</html>

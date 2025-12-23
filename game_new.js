@@ -38,10 +38,14 @@ function goToPage(pageNumber) {
 
         setTimeout(() => {
             currentPage.classList.remove('active', 'fade-out');
+            // Hide old page completely to improve performance
+            currentPage.style.display = 'none';
 
             // Fade in new page
             const targetPage = document.getElementById(`page-${pageNumber}`);
             if (targetPage) {
+                // Show new page
+                targetPage.style.display = 'flex';
                 targetPage.classList.add('active', 'fade-in');
                 gameState.currentPage = pageNumber;
 
@@ -67,16 +71,110 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Next button on Page 2 - will be used for future pages
+    // Next button on Page 2 - go to Page 3
     const nextBtn2 = document.getElementById('next-btn-2');
     if (nextBtn2) {
         nextBtn2.addEventListener('click', () => {
-            // For now, just log - will connect to more pages later
-            console.log('Next button clicked on page 2');
-            // goToPage(3); // Uncomment when page 3 is ready
+            goToPage(3);
+        });
+    }
+
+    // Submit button on Page 3 - save data and go to Page 4
+    const submitBtn3 = document.getElementById('submit-btn-3');
+    if (submitBtn3) {
+        submitBtn3.addEventListener('click', () => {
+            // Save user data
+            const nameInput = document.getElementById('name-input');
+            const ageInput = document.getElementById('age-input');
+            const genderInput = document.getElementById('gender-input');
+
+            if (nameInput) gameState.user.name = nameInput.value;
+            if (ageInput) gameState.user.age = ageInput.value;
+            if (genderInput) gameState.user.gender = genderInput.value;
+
+            goToPage(4);
+
+            // Start story animation after page transition
+            setTimeout(() => {
+                playStoryAnimation();
+            }, 800);
         });
     }
 
     // Show page 1
     showPage(1);
 });
+
+// ====== Page 4 Story Animation ======
+
+function playStoryAnimation() {
+    const introText = document.querySelector('.story-intro-text');
+    const blackBg = document.querySelector('.story-black-bg');
+    const storyBg = document.querySelector('.story-bg');
+    const storyFrame = document.querySelector('.story-frame');
+    const storyText1 = document.querySelector('.story-text-1');
+    const storyText2 = document.querySelector('.story-text-2');
+    const storyText3 = document.querySelector('.story-text-3');
+
+    // Step 1: Show intro text for 3 seconds, then fade out
+    setTimeout(() => {
+        if (introText) introText.classList.add('fade-out');
+    }, 3000);
+
+    // Step 2: Hide black background, show station background
+    setTimeout(() => {
+        if (blackBg) blackBg.style.display = 'none';
+        if (storyBg) {
+            storyBg.classList.remove('hidden');
+            storyBg.classList.add('show');
+        }
+    }, 4500);
+
+    // Step 3: Show frame
+    setTimeout(() => {
+        if (storyFrame) {
+            storyFrame.classList.remove('hidden');
+            storyFrame.classList.add('show');
+        }
+    }, 5500);
+
+    // Step 4: Show story text 1
+    setTimeout(() => {
+        if (storyText1) {
+            storyText1.classList.remove('hidden');
+            storyText1.classList.add('show');
+        }
+    }, 6500);
+
+    // Step 5: Fade out story text 1
+    setTimeout(() => {
+        if (storyText1) {
+            storyText1.classList.remove('show');
+            storyText1.classList.add('fade-out');
+        }
+    }, 10000);
+
+    // Step 6: Show story text 2
+    setTimeout(() => {
+        if (storyText2) {
+            storyText2.classList.remove('hidden');
+            storyText2.classList.add('show');
+        }
+    }, 11500);
+
+    // Step 7: Fade out story text 2
+    setTimeout(() => {
+        if (storyText2) {
+            storyText2.classList.remove('show');
+            storyText2.classList.add('fade-out');
+        }
+    }, 15000);
+
+    // Step 8: Show story text 3
+    setTimeout(() => {
+        if (storyText3) {
+            storyText3.classList.remove('hidden');
+            storyText3.classList.add('show');
+        }
+    }, 16500);
+}
